@@ -1,0 +1,102 @@
+
+
+/* === index.html dan ajratildi (XOLERIC SEO) === */
+:root {
+            /* Global o'zgaruvchilar */
+            --hue: 120;
+            --sat: 100%;
+            --light: 50%;
+            --primary: hsl(var(--hue), var(--sat), var(--light));
+            --primary-dim: hsl(var(--hue), var(--sat), 20%);
+            --bg: #030303;
+            --font-stack: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--primary);
+            font-family: var(--font-stack);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-shadow: 0 0 5px var(--primary-dim);
+        }
+
+        /* Matrix Background */
+        #matrix-bg {
+            position: fixed; inset: 0; z-index: 0; opacity: 0.8;
+        }
+
+        /* Old Monitor Effect */
+        .scanlines {
+            position: fixed; inset: 0; z-index: 2; pointer-events: none;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+            background-size: 100% 4px;
+        }
+
+        /* UI Container */
+        #terminal-ui {
+            position: relative; z-index: 10;
+            width: 100%; height: 100%;
+            padding: 15px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        #terminal-ui::-webkit-scrollbar { display: none; }
+
+        /* Matn Styllari */
+        .sys-msg { color: #ddd; margin-bottom: 4px; line-height: 1.4; word-wrap: break-word; }
+        .sys-success { color: var(--primary); font-weight: bold; }
+        .sys-err { color: #ff3333; font-weight: bold; }
+        .sys-info { color: #00d4ff; }
+        
+        /* AI Javobi uchun maxsus stil */
+        .ai-response {
+            color: #ff00ff; /* Neon Pink */
+            border-left: 3px solid #ff00ff;
+            background: rgba(255, 0, 255, 0.05);
+            padding: 8px;
+            margin: 5px 0 10px 0;
+            font-style: italic;
+            border-radius: 0 5px 5px 0;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+
+        /* ASCII Art */
+        .ascii-art {
+            font-size: 10px; line-height: 10px; margin-bottom: 20px;
+            color: var(--primary); font-weight: bold; white-space: pre;
+        }
+
+        /* Prompt */
+        .input-group { margin-top: 10px; padding-bottom: 50px; }
+        .p-head { display: flex; flex-wrap: wrap; margin-bottom: 4px; font-size: 14px; }
+        .p-body { display: flex; align-items: center; }
+        
+        .c-user { color: #00d4ff; font-weight: bold; }
+        .c-path { color: #fff; }
+        .c-sym { color: var(--primary); }
+
+        #cmd-input {
+            background: transparent; border: none; color: #fff;
+            font-family: inherit; font-size: 16px; font-weight: bold;
+            flex: 1; margin-left: 8px; caret-color: var(--primary);
+        }
+
+        /* Portal Effect */
+        #portal {
+            position: fixed; inset: 0; z-index: 100;
+            background: #000; pointer-events: none; opacity: 0;
+            transform: scale(0.1); transition: all 0.8s cubic-bezier(0.7,0,0.3,1);
+            display: flex; justify-content: center; align-items: center;
+        }
+        .portal-active { opacity: 1 !important; transform: scale(3) !important; background: radial-gradient(circle, var(--primary) 0%, #000 70%); }
+
+        @media(max-width: 600px) {
+            .ascii-art { font-size: 7px; line-height: 7px; }
+            #cmd-input { font-size: 14px; }
+        }

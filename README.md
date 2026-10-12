@@ -74,3 +74,6 @@ AI va terminal interfeysini birlashtirgan innovatsion loyiha. 13
 
 Private project by **X**.  
 All rights reserved. 14
+
+## 🔗 Rasmiy portfolio
+Barcha XOLERIC loyihalari: **https://xolerc.github.io/mydrime/**
